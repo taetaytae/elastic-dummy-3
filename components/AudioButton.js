@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { useState, useEffect } from "react";
 import { useStore } from "../pages/screen";
 import Granulator from "./Granulator";
-import styles from './audioui.module.css';
+import styles from '../styles/audioui.module.css';
 import { FormControl, InputLabel, Input, Typography } from "@mui/material";
 
 import { useStoreNew } from "./store";

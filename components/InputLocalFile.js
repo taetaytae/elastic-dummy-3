@@ -1,4 +1,4 @@
-import styles from './audioui.module.css';
+import styles from '../styles/audioui.module.css';
 import { Button, Typography } from '@mui/material';
 
 export default function InputLocalFileUI(props){
