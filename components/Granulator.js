@@ -35,7 +35,7 @@ import InputLocalFileUI from './InputLocalFile';
   type control for inputs - set limit to values being entered
  **/
 
-function fetchRandomAudioFile(randomState, setRandomState) {
+function useFetchRandomAudioFile(randomState, setRandomState) {
     const [randomAudioURL, setRandomAudioURL] = useState(null);
     const [randomAudioName, setRandomAudioName] = useState(null);
     const [loadingFile, setLoadingFile] = useState(true);
@@ -66,7 +66,7 @@ function fetchRandomAudioFile(randomState, setRandomState) {
     return {randomAudioURL, loadingFile, randomAudioName};
 }
 
-function fetchDefaultAudioFile(){
+function useFetchDefaultAudioFile(){
     const [defaultAudioURL, setDefaultAudioURL] = useState(null);
     const [defaultAudioName, setDefaultAudioName] = useState(null);
     const [loadingDefaultFile, setLoadingDefaultFile] = useState(true);
@@ -143,9 +143,9 @@ const Granulator = forwardRef((props, ref) => {
 
     //Variable to determine when to fetch a new random file
     const [randomState, setRandomState] = useState(false);
-    let {randomAudioURL, loadingFile, randomAudioName} = fetchRandomAudioFile(randomState, setRandomState);
+    let {randomAudioURL, loadingFile, randomAudioName} = useFetchRandomAudioFile(randomState, setRandomState);
 
-    let {defaultAudioURL, defaultAudioName, loadingDefaultFile} = fetchDefaultAudioFile();
+    let {defaultAudioURL, defaultAudioName, loadingDefaultFile} = useFetchDefaultAudioFile();
 
     const [bufferSizeInSeconds, setBufferSizeInSeconds] = useState(null);
     const [bufferChannelData, setBufferChannelData] = useState(null);
