@@ -23,7 +23,7 @@ export function UpdatePosition(props){
 function useTestFetchAPICall(fetchState, setFetchState){
     useEffect(() => {
         async function axiosFetch(){
-            await axios.get('http://localhost:3000/api/default')
+            await axios.get(process.env.NEXT_PUBLIC_DEFAULT)
                     .then(function (response) {
                         console.log(response.data);
                     })

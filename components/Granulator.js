@@ -43,7 +43,7 @@ function useFetchRandomAudioFile(randomState, setRandomState) {
     useEffect(() => {
         async function fetchRandomURL(){
 
-            await axios.get('http://localhost:3000/api/random')
+            await axios.get(process.env.NEXT_PUBLIC_RANDOM)
                     .then(function (response) {
                             console.log(response.data.name);
                             console.log(response.data.previews['preview-hq-mp3']);
@@ -73,7 +73,7 @@ function useFetchDefaultAudioFile(){
 
     useEffect(() => {
         async function fetchDefaultURL(){
-            await axios.get('http://localhost:3000/api/default')
+            await axios.get(process.env.NEXT_PUBLIC_DEFAULT)
                     .then(function(response){
                         // console.log(response.data);
                         setDefaultAudioName(response.data.name);
