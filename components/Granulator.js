@@ -9,7 +9,7 @@ import { Slider,
     ButtonGroup, 
     Slide} from "@mui/material";
 import Button from '@mui/material/Button';
-import styles from '../styles/audioui.module.css';
+import styles from '../styles/AudioUI.module.css';
 import Canvas from './Canvas';
 import axios from 'axios';
 import { useStoreNew } from './store';

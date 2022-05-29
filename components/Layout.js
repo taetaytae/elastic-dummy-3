@@ -1,4 +1,4 @@
-import styles from '../styles/layout.module.css';
+import styles from '../styles/Layout.module.css';
 import Head from 'next/head';
 
 export default function Layout({ children }) {
