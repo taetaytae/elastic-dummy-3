@@ -20,7 +20,7 @@ export function UpdatePosition(props){
     return(<></>)
 }
 
-function testFetchAPICall(fetchState, setFetchState){
+function useTestFetchAPICall(fetchState, setFetchState){
     useEffect(() => {
         async function axiosFetch(){
             await axios.get('http://localhost:3000/api/default')
@@ -58,7 +58,7 @@ function AudioButton(props){
 
     const [fetchState, setFetchState] = useState(false);
 
-    const apiData = testFetchAPICall(fetchState, setFetchState);
+    const apiData = useTestFetchAPICall(fetchState, setFetchState);
 
     const samplePlay = () => {
         // audioFile.loaded===true ? 

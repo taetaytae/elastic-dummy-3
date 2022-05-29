@@ -380,6 +380,8 @@ const Granulator = forwardRef((props, ref) => {
     );
 })
 
+Granulator.displayName = 'Granulator';
+
 Grain.defaultProps = {
 
 };
