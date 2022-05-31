@@ -123,12 +123,12 @@ function AudioButton(props){
     }
 
     return(
-        <div className="audioUI">
+        <div className="audio-ui">
             <style jsx>{`
-                .audioUI {
+                .audio-ui {
                     justify-self: center;
                     display: flex;
-                    flex-direction: column
+                    flex-direction: column;
                 }
             `}</style>
             {button}
