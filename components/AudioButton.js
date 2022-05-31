@@ -123,11 +123,14 @@ function AudioButton(props){
     }
 
     return(
-        <div className="audioUI" style={{
-            'justifySelf':'center',
-            'display':'flex',
-            'flexDirection':'column', 
-        }}>
+        <div className="audioUI">
+            <style jsx>{`
+                .audioUI {
+                    justify-self: center;
+                    display: flex;
+                    flex-direction: column
+                }
+            `}</style>
             {button}
             {/* {upload} */}
             {grain}
