@@ -6,6 +6,7 @@ import { useStore } from "../pages/screen";
 import Granulator from "./Granulator";
 import styles from '../styles/AudioUI.module.css';
 import { FormControl, InputLabel, Input, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import { useStoreNew } from "./store";
 
@@ -123,20 +124,23 @@ function AudioButton(props){
     }
 
     return(
-        <div className="audio-ui">
-            <style jsx>{`
-                .audio-ui {
-                    justify-self: center;
-                    display: flex;
-                    flex-direction: column;
-                }
-            `}</style>
-            {button}
+        <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+       >
+        <div className={styles.audioui}>
+            <Grid item xs={20}>
+                {button}
+            </Grid>
             {/* {upload} */}
             {grain}
             <div className="sliderPanel">
             </div>
         </div>
+        </Grid>
     );
 }
 

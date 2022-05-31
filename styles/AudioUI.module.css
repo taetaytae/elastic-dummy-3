@@ -2,4 +2,11 @@
     display:flex;
     width: 20%;
     margin: 0 auto;
+    justify-self: center;
+}
+
+.audioui {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
 }
