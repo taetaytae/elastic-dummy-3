@@ -105,7 +105,7 @@ function AudioButton(props){
         upload = <></>
         
     } else {
-        button = <button variant='outlined' onClick={samplePlay} className={styles.button}>Sound</button>;
+        button = <Button variant='outlined' onClick={samplePlay} className={styles.button}>Sound</Button>;
         // button = <></>;
         grain = <Granulator ref={granulatorRef} localFileURL={fileURL}/>
         upload = <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
