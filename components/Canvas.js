@@ -92,7 +92,7 @@ const Canvas = (props) => {
         <div ref={divRef} id="canvasDiv">
             <canvas
                 ref={ref}
-                style={{ width: '100%', height: '200px', display:'none' }}
+                style={{ width: '100%', height: '200px', display: 'none' }}
             />
         </div>
     );

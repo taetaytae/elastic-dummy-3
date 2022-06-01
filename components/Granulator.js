@@ -351,16 +351,24 @@ const Granulator = forwardRef((props, ref) => {
             'display':'flex',
             'flexDirection':'column'
         }}>
+            <div className='granulatorui' style={{
+                'justifyContent':'center',
+                'display':'flex',
+                'flexDirection':'row'
+            }}>
+                {fileUI}
+                <InputLocalFileUI handleSubmit={handleSubmit} handleFileChange={handleFileChange} fileInputRef={fileInputRef} fileName={fileName}/>
+            </div>
             
-            <Typography id='bufferPosition'style={{'justifyContent':'center', 'display':'flex'}}>Audio file Controls</Typography>
+            {/* <Typography id='bufferPosition'style={{'justifyContent':'center', 'display':'flex'}}>Audio file Controls</Typography> */}
             <br></br>
             {/* <Slider id='bufferPosSlider' max={bufferSizeInSeconds} min={0} defaultValue={0} step={1} onChange={handleBufferSlider}/> */}
             
-            {fileUI}
-            <p style={{'display':'flex',
-                       'justifyContent':'center'}}>{loadingFile || bufferLoading ? (loadingDefaultFile ? '---' : defaultAudioName): randomAudioName}</p>
+            {/* {fileUI} */}
+            {/* <p style={{'display':'flex',
+                       'justifyContent':'center'}}>{loadingFile || bufferLoading ? (loadingDefaultFile ? '---' : defaultAudioName): randomAudioName}</p> */}
 
-            <InputLocalFileUI handleSubmit={handleSubmit} handleFileChange={handleFileChange} fileInputRef={fileInputRef} fileName={fileName}/>
+            {/* <InputLocalFileUI handleSubmit={handleSubmit} handleFileChange={handleFileChange} fileInputRef={fileInputRef} fileName={fileName}/> */}
 
             {/* <Typography id='distribution'>Distribution</Typography>
             <Slider id='distributionSlider' max={5} min={0} defaultValue={0} step={0.01} onChange={(e) => {offsetMax[0] = e.target.value}}/>

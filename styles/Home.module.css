@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  background-color: #D0D0D0;
 }
 
 .main {
@@ -10,6 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  color: #1e212b;
 }
 
 .footer {
@@ -22,7 +25,7 @@
 }
 
 .main a {
-  color: #0070f3;
+  color: #606060;
   text-decoration: none;
 }
 
@@ -40,7 +43,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: #606060;
   text-decoration: none;
 }
 

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">ED-003</a>
+          Welcome to <a href="https://github.com/taetaytae/elastic-dummy-3" target="_blank" rel="noopener noreferrer">ED-003</a>
         </h1>
         <p className={styles.description}>
           A web-based granular synthesizer with a Three.js based UI. Works better with headphones.
@@ -22,6 +23,7 @@ export default function Home() {
           <a className={styles.headingMd}>Press here to continue.</a>
         </Link>
       </main>
+      <Footer/>
     </div>
   )
 }

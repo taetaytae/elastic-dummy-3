@@ -69,7 +69,7 @@ function Scene() {
             {/* <directionalLight color="red" position={[0, 0, 5]} /> */}
            
 
-                <color attach='background' args={['skyblue']}/>
+                <color attach='background' args={['#D0D0D0']}/>
                 <Particles count={1000} mouse={mouse}/>
                 <WaveformPlane/>
                 {/* <Lights position={[2,0,20]}/> */}

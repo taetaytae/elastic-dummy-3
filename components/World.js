@@ -23,7 +23,7 @@ class World extends React.Component {
                       Set the container's background color to the same as the scene's
                       background to prevent flashing on load
                     */
-                    background-color: skyblue;
+                    background-color: #D0D0D0;
                   }
             `}</style>
                 <Canvas camera={{fov:35, aspect:1, near:0.1, far: 200, position:[0,0,15], zoom:1}} dpr={[1, 2]}>

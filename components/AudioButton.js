@@ -106,8 +106,8 @@ function AudioButton(props){
         upload = <></>
         
     } else {
-        button = <Button variant='outlined' onClick={samplePlay} className={styles.button}>Sound</Button>;
-        // button = <></>;
+        // button = <Button variant='outlined' onClick={samplePlay} className={styles.button}>Sound</Button>;
+        button = <></>;
         grain = <Granulator ref={granulatorRef} localFileURL={fileURL}/>
         upload = <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
                     <label htmlFor="contained-button-file">
@@ -127,12 +127,12 @@ function AudioButton(props){
         <Grid
         container
         spacing={0}
-        direction="column"
+        direction="row"
         alignItems="center"
         justifyContent="center"
        >
-        <div className={styles.audioui}>
-            <Grid item xs={20}>
+        <div className="audio-ui">
+            <Grid item xs={80}>
                 {button}
             </Grid>
             {/* {upload} */}
