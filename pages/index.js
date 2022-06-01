@@ -14,13 +14,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://github.com/taetaytae/elastic-dummy-3" target="_blank" rel="noopener noreferrer">ED-003</a>
+          <a href="https://github.com/taetaytae/elastic-dummy-3" target="_blank" rel="noopener noreferrer">ED-003</a>
         </h1>
         <p className={styles.description}>
-          A web-based granular synthesizer with a Three.js based UI. Works better with headphones.
+          A web-based granular synthesizer<br/>with a Three.js based UI.<br/>Works better with headphones.
         </p>
         <Link href='/screen'>
-          <a className={styles.headingMd}>Press here to continue.</a>
+          <a className={styles.headingMd}>Click here to continue.</a>
         </Link>
       </main>
       <Footer/>
