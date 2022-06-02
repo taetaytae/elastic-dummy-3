@@ -7,7 +7,8 @@ import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 're
 import { Slider,
     Typography,
     ButtonGroup, 
-    Slide} from "@mui/material";
+    Slide,
+    CircularProgress } from "@mui/material";
 import Button from '@mui/material/Button';
 import styles from '../styles/AudioUI.module.css';
 import Canvas from './Canvas';
@@ -45,8 +46,9 @@ function useFetchRandomAudioFile(randomState, setRandomState) {
 
             await axios.get(process.env.NEXT_PUBLIC_RANDOM)
                     .then(function (response) {
-                            console.log(response.data.name);
+                            console.log(response.data);
                             console.log(response.data.previews['preview-hq-mp3']);
+                            useStoreNew.getState().updateCurrentAudioFile(response.data.name);
                             setRandomAudioName(response.data.name);
                             setRandomAudioURL(response.data.previews['preview-hq-mp3']);
                             setLoadingFile(false);
@@ -76,6 +78,7 @@ function useFetchDefaultAudioFile(){
             await axios.get(process.env.NEXT_PUBLIC_DEFAULT)
                     .then(function(response){
                         // console.log(response.data);
+                        useStoreNew.getState().updateCurrentAudioFile(response.data.name);
                         setDefaultAudioName(response.data.name);
                         setDefaultAudioURL(response.data.previews['preview-hq-mp3']);
                         setLoadingDefaultFile(false);
@@ -310,6 +313,7 @@ const Granulator = forwardRef((props, ref) => {
               );
     
             setLocalFileURL(URL.createObjectURL(fileInputRef.current.files[0]));
+            useStoreNew.getState().updateCurrentAudioFile(fileInputRef.current.files[0].name);
         }
         else{
             alert('No audio file selected');
@@ -327,8 +331,10 @@ const Granulator = forwardRef((props, ref) => {
     let fileUI;
 
     if(bufferLoading){
-        fileUI = <p style={{'display':'flex',
-                            'justifyContent':'center'}}>Buffer is Loading</p>
+        fileUI = <p className={styles.bufferloading}>
+                    <div className={styles.loadingtext}>Buffer is Loading...</div>
+                    <CircularProgress className={styles.circularprogress}/>
+                </p>
     } else{
         fileUI = <div style={{
                 'flexDirection':'row',
@@ -361,12 +367,12 @@ const Granulator = forwardRef((props, ref) => {
             </div>
             
             {/* <Typography id='bufferPosition'style={{'justifyContent':'center', 'display':'flex'}}>Audio file Controls</Typography> */}
-            <br></br>
+            {/* <br></br> */}
             {/* <Slider id='bufferPosSlider' max={bufferSizeInSeconds} min={0} defaultValue={0} step={1} onChange={handleBufferSlider}/> */}
             
             {/* {fileUI} */}
             {/* <p style={{'display':'flex',
-                       'justifyContent':'center'}}>{loadingFile || bufferLoading ? (loadingDefaultFile ? '---' : defaultAudioName): randomAudioName}</p> */}
+                       'justifyContent':'center', 'margin':'0'}}>{loadingFile || bufferLoading ? (loadingDefaultFile ? '---' : defaultAudioName): randomAudioName}</p> */}
 
             {/* <InputLocalFileUI handleSubmit={handleSubmit} handleFileChange={handleFileChange} fileInputRef={fileInputRef} fileName={fileName}/> */}
 

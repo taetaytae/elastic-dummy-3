@@ -17,7 +17,7 @@ export default function Home() {
           <a href="https://github.com/taetaytae/elastic-dummy-3" target="_blank" rel="noopener noreferrer">ED-003</a>
         </h1>
         <p className={styles.description}>
-          A web-based granular synthesizer<br/>with a Three.js based UI.<br/>Works better with headphones.
+          A web-based granular synthesizer<br/>with a React Three Fiber based UI.<br/>Works better with headphones.
         </p>
         <Link href='/screen'>
           <a className={styles.headingMd}>Click here to continue.</a>

@@ -12,6 +12,12 @@ export default function Footer(props) {
                 <br/>
                 <a href={'https://www.google.com/'}>Elastic Dummy</a>
             </div>
+            <div className={styles.item}>
+                <br></br>
+                <a href={'https://www.google.com/'}>Help</a>
+                <br></br>
+                <a href={'https://www.google.com/'}>Home</a>
+            </div>
         </div>
     )
 }

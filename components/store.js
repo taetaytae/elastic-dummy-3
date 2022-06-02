@@ -1,5 +1,4 @@
 import create from 'zustand';
-import { useState } from 'react';
 
 export const useStoreNew = create((set) => ({
     x: 0,
@@ -14,6 +13,7 @@ export const useStoreNew = create((set) => ({
     grainRelease: 0,
     grainDensity: 1,
     bufferSizeInSeconds: null,
+    currentAudioFile: '---',
 
     setCoordinates: (x, y, xMin, xMax, yMin, yMax) => set((state) => ({x: x, y: y})),
     setCanvasRef: (ref) => set(() => ({canvasRef:ref})),
@@ -66,6 +66,9 @@ export const useStoreNew = create((set) => ({
     }),
     setBufferSizeInSeconds: (bufferSizeInSeconds) => set((state) => {
         state.bufferSizeInSeconds = bufferSizeInSeconds;
+    }),
+    updateCurrentAudioFile: (newFileName) => set((state) => {
+        state.currentAudioFile = newFileName;
     }),
 
 

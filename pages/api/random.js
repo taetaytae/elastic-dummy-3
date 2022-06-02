@@ -21,9 +21,9 @@ export default function handler(req, res) {
       //Use random word to fetch a random audio file
       const query = response.data.word;
 
-      await axios.get(`https://freesound.org/apiv2/search/text/?query=${query}&fields=name,previews&token=${process.env.FREESOUND_TOKEN}`)
+      await axios.get(`https://freesound.org/apiv2/search/text/?query=${query}&fields=name,previews,duration,filesize&token=${process.env.FREESOUND_TOKEN}`)
                 .then(function(response){
-                  if(response.data.results.length == 0){
+                  if(response.data.results.length == 0 || response.data.results[0].duration > 420){
                     fetchRandomURL();
                   }else{
                     res.status(200).send(response.data.results[0]);

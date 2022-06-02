@@ -24,7 +24,7 @@ export function UpdatePosition(props){
 function useTestFetchAPICall(fetchState, setFetchState){
     useEffect(() => {
         async function axiosFetch(){
-            await axios.get(process.env.NEXT_PUBLIC_DEFAULT)
+            await axios.get(process.env.NEXT_PUBLIC_RANDOM)
                     .then(function (response) {
                         console.log(response.data);
                     })

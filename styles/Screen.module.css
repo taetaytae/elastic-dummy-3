@@ -1,0 +1,41 @@
+.container {
+    background-color: #D0D0D0; 
+    height: 100vh; 
+    overflow: auto;
+    padding: 0 2rem;
+}
+
+.main {
+    grid-template-rows: auto;
+    display: grid;
+}
+
+.interface {
+    justify-self: center;
+    width: 80%;
+    color:#1F212B;
+}
+
+.secondrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.secondrow p {
+    margin: 10px 10px;
+}
+
+.worldcontainer {
+    border:'1px solid #000000';
+    display: block;
+    margin: 0 auto;
+    width:80vw;
+    height:75vh;
+                            
+    /*
+    Set the container's background color to the same as the scene's
+    background to prevent flashing on load
+    */
+    background-color: #D0D0D0;
+}

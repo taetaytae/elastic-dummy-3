@@ -9,6 +9,7 @@ import World from '../components/World';
 import create from 'zustand';
 import { useStoreNew } from '../components/store';
 import Footer from '../components/Footer';
+import styles from '../styles/Screen.module.css';
 
 export const useStore = create((set) => ({
     x: 0,
@@ -37,6 +38,7 @@ class Screen extends React.Component {
             renderCanvas: false,
             x: 0,
             y: 0,
+            fileName: '',
         }
 
         this.toggleCanvasRender = this.toggleCanvasRender.bind(this);
@@ -68,37 +70,24 @@ class Screen extends React.Component {
             world = <World/>
         }
 
+        useStoreNew.subscribe((state) => {
+            this.setState({fileName: state.currentAudioFile})
+        });
+
         return(
-            <div className='mainScreen' style={{'backgroundColor': '#D0D0D0', 'height': '100vh', 'overflow': 'auto'}}>
+            <div className={styles.container}>
             <Layout>
-                 <div className='homePage' style={{'gridTemplateRows': 'auto',
-                                            'display': 'grid'}}>
-                    <div className='interface' style={{
-                        'justifySelf' : 'center',
-                        'width': '80%',
-                        'color':'#1F212B'
-                    }}>
+                 <div className={styles.main}>
+                    <div className={styles.worldcontainer}>
+                        {world}
+                    </div>
+                    <div className={styles.interface}>
                         <AudioButton/>
                         <UpdatePosition/>
-                        <FormControlLabel control={renderSwitch} label='Render'/>
-                    </div>
-                    <div id='world-container'>
-                        <style jsx>{`
-                            #world-container {
-                                border:'1px solid #000000';
-                                display: block;
-                                margin: 0 auto
-                                width:80vw;
-                                height:80vh;
-                            
-                                /*
-                                Set the container's background color to the same as the scene's
-                                background to prevent flashing on load
-                                */
-                                background-color: #D0D0D0;
-                            }
-                        `}</style>
-                        {world}
+                        <div className={styles.secondrow}>
+                            <FormControlLabel control={renderSwitch} label='Render'/>
+                            <p>Current Audio File: {this.state.fileName}</p>
+                        </div>
                     </div>
                 </div>
             </Layout>
