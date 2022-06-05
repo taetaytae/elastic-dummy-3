@@ -10,6 +10,7 @@ import create from 'zustand';
 import { useStoreNew } from '../components/store';
 import Footer from '../components/Footer';
 import styles from '../styles/Screen.module.css';
+import Popup from '../components/Popup';
 
 export const useStore = create((set) => ({
     x: 0,
@@ -39,10 +40,12 @@ class Screen extends React.Component {
             x: 0,
             y: 0,
             fileName: '',
+            popupToggle: true,
         }
 
         this.toggleCanvasRender = this.toggleCanvasRender.bind(this);
         this.setCoordinates = this.setCoordinates.bind(this);
+        this.setPopupToggle = this.setPopupToggle.bind(this);
 
     }
 
@@ -50,12 +53,19 @@ class Screen extends React.Component {
         if(useStoreNew.getState().granulatorRef.current != null){
             useStoreNew.getState().granulatorRef.current.refStopClock();
         }
+        if(useStoreNew.getState().granulatorUIRef.current != null){
+            useStoreNew.getState().granulatorUIRef.current.resetPlayBtn();
+        }
         this.setState({renderCanvas: !this.state.renderCanvas})
         console.log('render state: ', this.state.renderCanvas);
     }
 
     setCoordinates(x, y){
         this.setState({x: x, y: y});
+    }
+
+    setPopupToggle(){
+        this.setState({popupToggle: !this.state.popupToggle});
     }
 
     render() {
@@ -91,7 +101,8 @@ class Screen extends React.Component {
                     </div>
                 </div>
             </Layout>
-            <Footer/>
+            { this.state.popupToggle ? <Popup togglePopup={this.setPopupToggle}/> : <></> }
+            <Footer togglePopup={this.setPopupToggle}/>
             </div>
         );
     }

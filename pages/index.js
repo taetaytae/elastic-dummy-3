@@ -2,8 +2,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import Footer from '../components/Footer';
+import Popup from '../components/Popup';
+
+import { useState } from 'react';
 
 export default function Home() {
+
+  const [popupToggle, setPopupToggle] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +20,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a href="https://github.com/taetaytae/elastic-dummy-3" target="_blank" rel="noopener noreferrer">ED-003</a>
+          <a href="https://mariosan.com/elasticdummy003" target="_blank" rel="noopener noreferrer">ED-003</a>
         </h1>
         <p className={styles.description}>
           A web-based granular synthesizer<br/>with a React Three Fiber based UI.<br/>Works better with headphones.
@@ -23,7 +29,8 @@ export default function Home() {
           <a className={styles.headingMd}>Click here to continue.</a>
         </Link>
       </main>
-      <Footer/>
+      { popupToggle ? <Popup togglePopup={() => {setPopupToggle(!popupToggle)}}/> : <></> }
+      <Footer togglePopup={() => {setPopupToggle(!popupToggle)}}/>
     </div>
   )
 }

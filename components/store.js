@@ -6,6 +6,7 @@ export const useStoreNew = create((set) => ({
     isDragging:[],
     canvasRef: null,
     granulatorRef: null,
+    granulatorUIRef: null,
     filePosition: 0,
     fileOffsetMax: 0,
     pitchOffsetMax: 0,
@@ -18,6 +19,7 @@ export const useStoreNew = create((set) => ({
     setCoordinates: (x, y, xMin, xMax, yMin, yMax) => set((state) => ({x: x, y: y})),
     setCanvasRef: (ref) => set(() => ({canvasRef:ref})),
     setGranulatorRef: (ref) => set(() => ({granulatorRef:ref})),
+    setGranulatorUIRef: (ref) => set(() => ({granulatorUIRef: ref})),
 
     setFileOffset: (input, inputMin, inputMax) => set((state) => {
         const outputMax = 5;

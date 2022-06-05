@@ -34,11 +34,12 @@
 .footer a:focus,
 .footer a:active {
     text-decoration: underline;
-}
-
-.footer svg:hover {
     cursor: pointer;
 }
+
+/* .footer svg:hover {
+    cursor: pointer;
+} */
 
 .footer p {
     margin:0;

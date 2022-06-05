@@ -1,0 +1,46 @@
+.popup {
+    position: absolute;
+    background-color: #D0D0D0;
+    color: #1e212b;
+    padding: 10px;
+    border-radius: 15px;
+    left: 50%;
+    top: 10%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* right: 35%; */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.486);
+}
+
+.popup span:hover {
+    cursor: pointer;
+}
+
+.popup span {
+    margin-bottom: 100px;
+}
+
+.popup h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 17px;
+}
+
+.popup p {
+    margin: 0;
+}
+
+.popup ul {
+    margin: 0;
+}
+
+.popupclose {
+    text-align: right;
+    color: transparent;
+    text-shadow: 0 0 0 #606060;
+    font-size: 9px;
+}
+
+.popupclose p {
+    text-align: center;
+}

@@ -116,7 +116,7 @@ function AudioButton(props){
                         <Button variant="contained" component="span" className={styles.button}>
                         Select
                         </Button>
-                        <Typography style={{'justifyContent':'center', 'display':'flex'}}>Selected Local File: {fileName}</Typography>
+                        <Typography component={'div'} style={{'justifyContent':'center', 'display':'flex'}}>Selected Local File: {fileName}</Typography>
                         {/* <Typography>{console.log(!fileInput.current)}</Typography> */}
                         <Button variant='outlined' type='submit' className={styles.button}>Submit</Button>
                     </label>
