@@ -53,8 +53,8 @@ class Screen extends React.Component {
         if(useStoreNew.getState().granulatorRef.current != null){
             useStoreNew.getState().granulatorRef.current.refStopClock();
         }
-        if(useStoreNew.getState().granulatorUIRef.current != null){
-            useStoreNew.getState().granulatorUIRef.current.resetPlayBtn();
+        if(useStoreNew.getState().granulatorUIRef != null){
+            if(useStoreNew.getState().granulatorUIRef.current != null) useStoreNew.getState().granulatorUIRef.current.resetPlayBtn();
         }
         this.setState({renderCanvas: !this.state.renderCanvas})
         console.log('render state: ', this.state.renderCanvas);

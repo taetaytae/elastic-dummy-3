@@ -16,7 +16,7 @@ export default function Popup(props) {
            
             <p>
                 Flip the render switch to start the scene. Move the objects in the scene<br/>
-                in order to control the grain parameters.
+                using your mouse in order to control the grain parameters.
                 
             </p>
             <ul>
