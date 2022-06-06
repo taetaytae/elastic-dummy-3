@@ -4,6 +4,8 @@ ED-003 is a web-based granular synthesizer made in React using [Next.js](https:/
 
 The audio files used as the sound source for the synthesizer are primarily fetched from FreeSound using the [FreeSound API](https://freesound.org/docs/api/). The random file search was set up using the [Words API](https://www.wordsapi.com/).
 
+Visit the project here: https://elastic-dummy-3.vercel.app/
+
 ## How it Works
 
 Flip the render switch in order to toggle the React Three Fiber scene. Press Tone Start in order to initialize the audio framework.

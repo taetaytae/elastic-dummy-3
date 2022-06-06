@@ -4,7 +4,7 @@ import Popup from '../components/Popup';
 
 /**
  * To-Do:
- * Update github readme
+ * Update github readme -- done
  * Update portfolio page description/explanation
  * Default audio file put in correct link -- Awaiting moderation
  * Debug so it does not break
