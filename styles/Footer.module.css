@@ -44,3 +44,12 @@
 .footer p {
     margin:0;
 }
+
+@media screen and (max-width:1300px){
+
+    .footer {
+       position: static;
+    }
+
+
+}

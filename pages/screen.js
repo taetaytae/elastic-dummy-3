@@ -56,6 +56,9 @@ class Screen extends React.Component {
         if(useStoreNew.getState().granulatorUIRef != null){
             if(useStoreNew.getState().granulatorUIRef.current != null) useStoreNew.getState().granulatorUIRef.current.resetPlayBtn();
         }
+        if(this.state.popupToggle){
+            this.setState({popupToggle: false});
+        }
         this.setState({renderCanvas: !this.state.renderCanvas})
         console.log('render state: ', this.state.renderCanvas);
     }
@@ -102,7 +105,7 @@ class Screen extends React.Component {
                 </div>
             </Layout>
             { this.state.popupToggle ? <Popup togglePopup={this.setPopupToggle}/> : <></> }
-            <Footer togglePopup={this.setPopupToggle}/>
+            <Footer  togglePopup={this.setPopupToggle}/>
             </div>
         );
     }
