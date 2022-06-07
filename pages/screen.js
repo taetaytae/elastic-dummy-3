@@ -6,8 +6,11 @@ import { UpdatePosition } from '../components/AudioButton';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import World from '../components/World';
+
 import create from 'zustand';
 import { useStoreNew } from '../src/store';
+import { useStoreNewWithSelector } from '../src/store';
+
 import Footer from '../components/Footer';
 import styles from '../styles/Screen.module.css';
 import Popup from '../components/Popup';
@@ -39,7 +42,7 @@ class Screen extends React.Component {
             renderCanvas: false,
             x: 0,
             y: 0,
-            fileName: '',
+            fileName: '---',
             popupToggle: true,
         }
 
@@ -83,9 +86,9 @@ class Screen extends React.Component {
             world = <World/>
         }
 
-        // useStoreNew.subscribe((state) => {
-        //     this.setState({fileName: state.currentAudioFile})
-        // });
+        useStoreNewWithSelector.subscribe(state => state.currentAudioFile, (currentAudioFile) => {
+            this.setState({fileName: currentAudioFile});
+        })
 
         return(
             <div className={styles.container}>

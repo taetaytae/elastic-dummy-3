@@ -1,4 +1,12 @@
 import create from 'zustand';
+import { subscribeWithSelector } from 'zustand/middleware';
+
+export const useStoreNewWithSelector = create(subscribeWithSelector((set) => ({
+    currentAudioFile: '---',
+    updateCurrentAudioFile: (newFileName) => set((state) => {
+        state.currentAudioFile = newFileName;
+    })
+})))
 
 export const useStoreNew = create((set) => ({
     x: 0,

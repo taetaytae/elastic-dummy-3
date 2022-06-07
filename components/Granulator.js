@@ -13,7 +13,9 @@ import Button from '@mui/material/Button';
 import styles from '../styles/AudioUI.module.css';
 import Canvas from './Canvas';
 import axios from 'axios';
+
 import { useStoreNew } from '../src/store';
+import { useStoreNewWithSelector } from '../src/store';
 
 import InputLocalFileUI from './InputLocalFile';
 import GranulatorUI from './GranulatorUI';
@@ -49,7 +51,8 @@ function useFetchRandomAudioFile(randomState, setRandomState) {
                     .then(function (response) {
                             console.log(response.data);
                             console.log(response.data.previews['preview-hq-mp3']);
-                            useStoreNew.getState().updateCurrentAudioFile(response.data.name);
+                            // useStoreNew.getState().updateCurrentAudioFile(response.data.name);
+                            useStoreNewWithSelector.getState().updateCurrentAudioFile(response.data.name);
                             setRandomAudioName(response.data.name);
                             setRandomAudioURL(response.data.previews['preview-hq-mp3']);
                             setLoadingFile(false);
@@ -79,7 +82,8 @@ function useFetchDefaultAudioFile(){
             await axios.get(process.env.NEXT_PUBLIC_DEFAULT)
                     .then(function(response){
                         // console.log(response.data);
-                        useStoreNew.getState().updateCurrentAudioFile(response.data.name);
+                        // useStoreNew.getState().updateCurrentAudioFile(response.data.name);
+                        useStoreNewWithSelector.getState().updateCurrentAudioFile(response.data.name);
                         setDefaultAudioName(response.data.name);
                         setDefaultAudioURL(response.data.previews['preview-hq-mp3']);
                         setLoadingDefaultFile(false);
@@ -341,7 +345,8 @@ const Granulator = forwardRef((props, ref) => {
             setDefaultAudioURL(null);
 
             setBufferLoading(true);
-            useStoreNew.getState().updateCurrentAudioFile(fileInputRef.current.files[0].name);
+            // useStoreNew.getState().updateCurrentAudioFile(fileInputRef.current.files[0].name);
+            useStoreNewWithSelector.getState().updateCurrentAudioFile(fileInputRef.current.files[0].name);
         }
         else{
             alert('No audio file selected');
