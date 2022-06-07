@@ -83,9 +83,9 @@ class Screen extends React.Component {
             world = <World/>
         }
 
-        useStoreNew.subscribe((state) => {
-            this.setState({fileName: state.currentAudioFile})
-        });
+        // useStoreNew.subscribe((state) => {
+        //     this.setState({fileName: state.currentAudioFile})
+        // });
 
         return(
             <div className={styles.container}>

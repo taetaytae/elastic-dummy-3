@@ -99,8 +99,8 @@ function AudioButton(props){
                             positionZ: 0,
                         }).toDestination();
                 
-                        const newAudioFile = (new Tone.Player('http://127.0.0.1:8080/audio/toneTest.wav').connect(newPan));
-                        setAudioFile(newAudioFile);
+                        // const newAudioFile = (new Tone.Player('http://127.0.0.1:8080/audio/toneTest.wav').connect(newPan));
+                        // setAudioFile(newAudioFile);
                     }}>Tone Start</Button>;
         grain = <></>
         upload = <></>

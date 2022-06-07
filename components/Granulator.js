@@ -167,7 +167,7 @@ const Granulator = forwardRef((props, ref) => {
     const [bufferSizeInSeconds, setBufferSizeInSeconds] = useState(null);
     const [bufferChannelData, setBufferChannelData] = useState(null);
     const [bufferLoaded, setBufferLoaded] = useState(false);
-    const [bufferLoading, setBufferLoading] = useState(false);
+    const [bufferLoading, setBufferLoading] = useState(true);
 
     //Set URL to relevant value
     let bufferURL = null;
