@@ -4,7 +4,7 @@ import { meshBounds, Html } from "@react-three/drei";
 import { useStore } from '../pages/screen';
 import { MathUtils } from 'three';
 import { Select } from '@react-three/postprocessing';
-import { useStoreNew } from './store';
+import { useStoreNew } from '../src/store';
 
 
 function Octa(props) {

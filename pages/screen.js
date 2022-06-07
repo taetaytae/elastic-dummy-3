@@ -7,7 +7,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import World from '../components/World';
 import create from 'zustand';
-import { useStoreNew } from '../components/store';
+import { useStoreNew } from '../src/store';
 import Footer from '../components/Footer';
 import styles from '../styles/Screen.module.css';
 import Popup from '../components/Popup';

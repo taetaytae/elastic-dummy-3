@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import React, { useRef, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 
+//Taken from React Three Fiber example project: https://codesandbox.io/s/sparks-and-effects-sbf2i
+
 function Particles({ count, mouse }) {
     const mesh = useRef();
     const light = useRef();

@@ -15,7 +15,7 @@ import Effects from './Effects';
 import Main from './Main';
 import { Slider, Button, ButtonGroup } from "@mui/material";
 import WaveformPlane from './WaveformPlane';
-import { useStoreNew } from './store';
+import { useStoreNew } from '../src/store';
 
 import { EffectComposer, Selection, Bloom, Outline } from '@react-three/postprocessing';
 

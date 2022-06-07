@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import styles from '../styles/AudioUI.module.css';
 import Canvas from './Canvas';
 import axios from 'axios';
-import { useStoreNew } from './store';
+import { useStoreNew } from '../src/store';
 
 import InputLocalFileUI from './InputLocalFile';
 import GranulatorUI from './GranulatorUI';

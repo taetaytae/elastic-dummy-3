@@ -8,7 +8,7 @@ import styles from '../styles/AudioUI.module.css';
 import { FormControl, InputLabel, Input, Typography } from "@mui/material";
 import { Grid } from "@mui/material";
 
-import { useStoreNew } from "./store";
+import { useStoreNew } from "../src/store";
 
 import axios from "axios";
 
