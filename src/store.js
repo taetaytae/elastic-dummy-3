@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
 
-export const useStoreNewWithSelector = create(subscribeWithSelector((set) => ({
+export const useStoreWithSelector = create(subscribeWithSelector((set) => ({
     currentAudioFile: '---',
     updateCurrentAudioFile: (newFileName) => set((state) => {
         state.currentAudioFile = newFileName;
@@ -18,13 +18,30 @@ export const useStoreNew = create((set) => ({
     filePosition: 0,
     fileOffsetMax: 0,
     pitchOffsetMax: 0,
-    grainAttack: 0,
-    grainRelease: 0,
+    grainAttack: 0.1,
+    grainRelease: 0.7,
     grainDensity: 1,
     bufferSizeInSeconds: null,
     currentAudioFile: '---',
 
-    setCoordinates: (x, y, xMin, xMax, yMin, yMax) => set((state) => ({x: x, y: y})),
+    setCoordinates: (x, y, xMin, xMax, yMin, yMax) => set((state) => {
+        const outputXMax = 2;
+        const outputXMin = -2;
+        const inputXPercentage = (x - xMin) / (xMax - xMin);
+        const scaledXValue = (outputXMax - outputXMin) * inputXPercentage + outputXMin;
+        const clampedXValue = Math.min(Math.max(scaledXValue, outputXMin), outputXMax);
+
+        const outputYMax = 2;
+        const outputYMin = -2;
+        const inputYPercentage = (y - yMin) / (yMax - yMin);
+        const scaledYValue = (outputYMax - outputYMin) * inputYPercentage + outputYMin;
+        const clampedYValue = Math.min(Math.max(scaledYValue, outputYMin), outputYMax);
+
+        state.x = Math.round(clampedXValue * 10) / 10;
+        state.y = Math.round(clampedYValue * 10) / 10;
+
+
+    }),
     setCanvasRef: (ref) => set(() => ({canvasRef:ref})),
     setGranulatorRef: (ref) => set(() => ({granulatorRef:ref})),
     setGranulatorUIRef: (ref) => set(() => ({granulatorUIRef: ref})),
@@ -53,6 +70,7 @@ export const useStoreNew = create((set) => ({
         const scaledValue = input/inputMax;
         const grainReleaseDecimal = Math.min(Math.max(scaledValue, 0), 1);
         state.grainRelease = Math.round(grainReleaseDecimal * 100) / 100;
+        console.log(state.grainRelease);
     }),
 
     setGrainDensity: (x, y, xMin, xMax, yMin, yMax) => set((state) => {

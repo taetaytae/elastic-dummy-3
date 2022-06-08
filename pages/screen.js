@@ -9,7 +9,7 @@ import World from '../components/World';
 
 import create from 'zustand';
 import { useStoreNew } from '../src/store';
-import { useStoreNewWithSelector } from '../src/store';
+import { useStoreWithSelector } from '../src/store';
 
 import Footer from '../components/Footer';
 import styles from '../styles/Screen.module.css';
@@ -86,7 +86,7 @@ class Screen extends React.Component {
             world = <World/>
         }
 
-        useStoreNewWithSelector.subscribe(state => state.currentAudioFile, (currentAudioFile) => {
+        useStoreWithSelector.subscribe(state => state.currentAudioFile, (currentAudioFile) => {
             this.setState({fileName: currentAudioFile});
         })
 
