@@ -4,6 +4,7 @@ import { Plane, MeshDistortMaterial } from "@react-three/drei";
 import { useStore } from "../pages/screen";
 import * as THREE from 'three';
 import Canvas from "./Canvas";
+import { useStoreNew } from "../src/store";
 
 const HTMLCanvasMaterial = ({ canvas }) => {
 
@@ -44,12 +45,12 @@ const HTMLCanvasMaterial = ({ canvas }) => {
 
 export default function WaveformPlane(props){
 
-    const { canvasRef } = useStore();
+    const { canvasRef } = useStoreNew();
     // console.log(canvasRef);
     let waveformComponent;
 
     if(canvasRef == null){
-        waveformComponent = <meshBasicMaterial color="skyblue" wireframe/>
+        waveformComponent = <meshBasicMaterial color="#D0D0D0" wireframe/>
     } else{
         waveformComponent =  <HTMLCanvasMaterial canvas={canvasRef}/>
     }
