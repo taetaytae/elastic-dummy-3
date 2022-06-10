@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { meshBounds, Html } from "@react-three/drei";
-import { useStore } from '../pages/screen';
+import { useStoreNew } from '../src/store';
 import { Select } from '@react-three/postprocessing';
 
 
@@ -11,7 +11,7 @@ function Cube(props) {
     const { viewport } = useThree();
     const [click, isClicking] = useState(false);
     const [hovered, setHovered] = useState(null);
-    const { setCoordinates, isDragging, addDragging, clearDragging } = useStore();
+    const { isDragging, addDragging, clearDragging } = useStoreNew();
 
     useFrame(({ mouse }) => {
         const x = mouse.x*viewport.width/2;
@@ -20,7 +20,6 @@ function Cube(props) {
         
      
         if(click && isDragging[0] == props.label){
-            // setCoordinates(x, y);
             props.setParameter(x, y, -viewport.width/2,  viewport.width/2, -viewport.height/2, viewport.height/2);
             group.current.position.set(x, y, 0);
         }

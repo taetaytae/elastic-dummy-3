@@ -1,18 +1,14 @@
 import { useFrame } from "@react-three/fiber";
 import { useThree } from "@react-three/fiber";
 import { Plane, MeshDistortMaterial } from "@react-three/drei";
-import { useStore } from "../pages/screen";
 import * as THREE from 'three';
-import Canvas from "./Canvas";
 import { useStoreNew } from "../src/store";
 
 const HTMLCanvasMaterial = ({ canvas }) => {
 
     const { gl } = useThree();
-    // console.log(canvas, " we in html")
 
     let texture = new THREE.CanvasTexture(canvas.current);
-    // console.log(texture);
 
     texture.anisotropy = gl.capabilities.getMaxAnisotropy();
     texture.needsUpdate = true;
@@ -46,7 +42,7 @@ const HTMLCanvasMaterial = ({ canvas }) => {
 export default function WaveformPlane(props){
 
     const { canvasRef } = useStoreNew();
-    // console.log(canvasRef);
+    
     let waveformComponent;
 
     if(canvasRef == null){

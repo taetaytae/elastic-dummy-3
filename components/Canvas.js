@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRef, useEffect } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import { useStore } from "../pages/screen";
 import { useStoreNew } from "../src/store";
 
 const Canvas = (props) => {

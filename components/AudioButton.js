@@ -1,26 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import * as Tone from 'tone';
 import Button from '@mui/material/Button';
-import { useState, useEffect } from "react";
-import { useStore } from "../pages/screen";
 import Granulator from "./Granulator";
 import styles from '../styles/AudioUI.module.css';
 import { FormControl, InputLabel, Input, Typography } from "@mui/material";
 import { Grid } from "@mui/material";
 
 import { useStoreNew } from "../src/store";
-
 import axios from "axios";
 
-export function UpdatePosition(props){
-    const { x, y } = useStore();
-    useEffect(() => {
-        // Tone.Listener.positionX.value = -x;
-        // Tone.Listener.positionY.value = y;
-    })
-    return(<></>)
-}
-
+// Used for testing api calls
 function useTestFetchAPICall(fetchState, setFetchState){
     useEffect(() => {
         async function axiosFetch(){
@@ -41,7 +30,7 @@ function useTestFetchAPICall(fetchState, setFetchState){
 }
 
 function AudioButton(props){
-    const [audioFile, setAudioFile] = useState();
+    // const [audioFile, setAudioFile] = useState();
     const [fileName, setFileName] = useState('---');
     const [fileURL, setFileURL] = useState(null);
     const [audioCtxState, setAudioCtx] = useState(false);
@@ -109,6 +98,8 @@ function AudioButton(props){
         // button = <Button variant='outlined' onClick={samplePlay} className={styles.button}>Sound</Button>;
         button = <></>;
         grain = <Granulator ref={granulatorRef} localFileURL={fileURL}/>
+        
+        //Used for testing input file submission
         upload = <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
                     <label htmlFor="contained-button-file">
                         {/* <Input ref={fileInput} inputProps={{accept: "audio/*"}} id="contained-button-file" multiple type="file" style={{display:'none'}}/> */}

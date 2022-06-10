@@ -1,6 +1,8 @@
 import create from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
 
+// Using selector in order to avoid re-render on every state change on the component 
+// that uses the current audio file name
 export const useStoreWithSelector = create(subscribeWithSelector((set) => ({
     currentAudioFile: '---',
     updateCurrentAudioFile: (newFileName) => set((state) => {
@@ -70,7 +72,6 @@ export const useStoreNew = create((set) => ({
         const scaledValue = input/inputMax;
         const grainReleaseDecimal = Math.min(Math.max(scaledValue, 0), 1);
         state.grainRelease = Math.round(grainReleaseDecimal * 100) / 100;
-        console.log(state.grainRelease);
     }),
 
     setGrainDensity: (x, y, xMin, xMax, yMin, yMax) => set((state) => {

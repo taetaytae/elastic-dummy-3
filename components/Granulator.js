@@ -3,7 +3,7 @@ import { ToneAudioBuffer,
         Envelope, 
         ToneBufferSource,
         Clock } from 'tone';
-import { useState, useEffect, useLayoutEffect, useRef, forwardRef, useImperativeHandle } from 'react';
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { Slider,
     Typography,
     ButtonGroup, 
@@ -160,13 +160,6 @@ const Granulator = forwardRef((props, ref) => {
     let {randomAudioURL, loadingFile, randomAudioName, setRandomAudioURL, setRandomAudioName} = useFetchRandomAudioFile(randomState, setRandomState);
 
     let {defaultAudioURL, defaultAudioName, loadingDefaultFile, setDefaultAudioURL} = useFetchDefaultAudioFile();
-    // const [defaulAudioState, setDefaultAudioState] = useState(true);
-
-    // useEffect(() => {
-    //     if(randomAudioURL != null || localFileURL != null){
-    //         setDefaultAudioState(false);
-    //     }
-    // }, [randomAudioURL, localFileURL]);
 
     const [bufferSizeInSeconds, setBufferSizeInSeconds] = useState(null);
     const [bufferChannelData, setBufferChannelData] = useState(null);
@@ -185,18 +178,11 @@ const Granulator = forwardRef((props, ref) => {
             if(randomState || randomAudioURL != null){
                     bufferURL = randomAudioURL;
             } else {
-                // console.log('hmm hmm')
-                // console.log('random state: ', randomState)
-                // console.log('default audio state: ', defaulAudioState);
-                
-                // if(defaulAudioState){
                     bufferURL = defaultAudioURL;
-                // }
             }
         }
 
     const buffer = new ToneAudioBuffer({
-        // url: !props.localFileURL ? 'http://127.0.0.1:8080/audio/toneTest.wav' : props.localFileURL,
         url: bufferURL,
         onload: () => {
             // console.log('buffer loaded');
@@ -381,19 +367,6 @@ const Granulator = forwardRef((props, ref) => {
                     <CircularProgress className={styles.circularprogress}/>
                 </p>
     } else{
-        // fileUI = <div style={{
-        //         'flexDirection':'row',
-        //         'display':'flex',
-        //         }}>
-        //             <Button className={styles.button} variant='outlined' onClick={startClock}>Play</Button>
-        //             <Button className={styles.button} variant='outlined' onClick={handleRandomButton}>Rng🔀</Button>
-        //             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-        //                 <Button onClick={() => {playbackRate[0] = 0.5}}>1/2x</Button>
-        //                 <Button onClick={() => {playbackRate[0] = 1}}>1x</Button>
-        //                 <Button onClick={() => {playbackRate[0] = 2}}>2x</Button>
-        //             </ButtonGroup>
-
-        //         </div>;
         fileUI = <GranulatorUI bufferLoaded={bufferLoaded} 
                                playbackFnOne={playbackFnOne} 
                                playbackFnOneHalf={playbackFnOneHalf} 
@@ -418,6 +391,8 @@ const Granulator = forwardRef((props, ref) => {
                 <InputLocalFileUI handleSubmit={handleSubmit} handleFileChange={handleFileChange} fileInputRef={fileInputRef} fileName={fileName}/>
             </div>
             
+            {/* Material UI interface for testing/debugging */}
+
             {/* <Typography id='bufferPosition'style={{'justifyContent':'center', 'display':'flex'}}>Audio file Controls</Typography> */}
             {/* <br></br> */}
             {/* <Slider id='bufferPosSlider' max={bufferSizeInSeconds} min={0} defaultValue={0} step={1} onChange={handleBufferSlider}/> */}
